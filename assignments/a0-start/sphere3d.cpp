@@ -33,6 +33,8 @@ class Sphere3D : public atkui::Framework {
   void keyUp(int key, int mods) {
       if (key == GLFW_KEY_SPACE) {
           space = true;
+          vel = agl::randomUnitVector() * 50.0f;
+          vel[1] = 0;
       }
       else if (key == GLFW_KEY_R) {
           space = false;
