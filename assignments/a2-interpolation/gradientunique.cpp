@@ -24,10 +24,11 @@ class Gradient : public atkui::Framework {
       int timeIncX = 0;
       int timeIncY = 0;
 
-      for (int i = 0; i < 11; ++i) { 
+      for (int i = 0; i < 11; ++i) {
+          
           for (int j = 0; j < 11; ++j) {
-              tx = (incX/width());
-              ty = (incY/height());
+              tx = elapsedTime()/ ((width() - incX)/2);
+              ty = elapsedTime()/ ((height() - incY)/2);
               tx = glm::clamp(tx, 0.0f, width()); // clamp to range width of window
               ty = glm::clamp(ty, 0.0f, height());
 
@@ -36,7 +37,7 @@ class Gradient : public atkui::Framework {
               vec3 finalLerp = lerp1 * (1 - ty) + lerp2 * ty;
               setColor(finalLerp);
 
-              drawCube(vec3(incX-25, (height() - incY)+25, 0), vec3(50, 50, 0));
+              drawCube(vec3(incX-20, (height() - incY)+20, 0), vec3(50, 50, 0));
               incX += 50;
           }
           incY += 50;

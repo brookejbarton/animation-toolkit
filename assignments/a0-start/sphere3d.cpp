@@ -25,8 +25,7 @@ class Sphere3D : public atkui::Framework {
     setColor(vec3(0,1,0));
 
     // draw a sphere at center of the world
-    float radius = 50.0;
-    drawSphere(pos, radius);
+    drawSphere(pos, 10);
     
   }
 
